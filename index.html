@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula da Dra. Amanda Almeida</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Fonte leve: apenas 1 peso (700) para não pesar o carregamento -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rosa-fundo: #fbe9ee;
+    --rosa-destaque: #e0507a;
+    --texto-escuro: #2b1c22;
+    --branco: #ffffff;
+    --cinza-linha: #eaeaea;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  body{
+    background-color: var(--rosa-fundo);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight:700;
+    color: var(--texto-escuro);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ===== CABEÇALHO ===== */
+  header{
+    background-color: var(--branco);
+    text-align:center;
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--cinza-linha);
+  }
+
+  header h1{
+    font-size: clamp(16px, 4.2vw, 22px);
+    line-height:1.35;
+    letter-spacing:0.2px;
+    text-transform:uppercase;
+  }
+
+  header h1 .data-destaque{
+    color: var(--rosa-destaque);
+  }
+
+  /* ===== VSL ===== */
+  main{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px 16px 40px;
+  }
+
+  .vsl-container{
+    position:relative;
+    width:100%;
+    border-radius:14px;
+    overflow:hidden;
+    background:#000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  #vturb-vsl-embed{
+    width:100%;
+    aspect-ratio: 9 / 16;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(180deg,#1a1a1a,#000);
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer{
+    text-align:center;
+    padding: 24px 16px 32px;
+    border-top: 1px solid var(--cinza-linha);
+  }
+
+  footer .footer-links{
+    font-size:12px;
+    margin-bottom:10px;
+  }
+
+  footer .footer-links a{
+    color: var(--texto-escuro);
+    text-decoration:none;
+  }
+
+  footer .footer-links a:hover{
+    text-decoration:underline;
+  }
+
+  footer .separador{
+    margin:0 8px;
+    color:#c9c9c9;
+  }
+
+  footer .footer-copy{
+    font-size:11px;
+    color:#7a6a70;
+    font-weight:400;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  footer .footer-copy a{
+    color:#7a6a70;
+    text-decoration:none;
+  }
+
+  footer .footer-copy a:hover{
+    text-decoration:underline;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ESSA AULA DA DRA. AMANDA SAI DO AR HOJE: <span class="data-destaque" id="data-hoje"></span></h1>
+</header>
+
+<main>
+  <div class="vsl-container">
+    <!-- ==========================================================
+         COLE AQUI O CÓDIGO DE EMBED DA VTURB (script + div do player)
+         O bloco abaixo é um PLACEHOLDER PROVISÓRIO.
+         Exemplo do formato que o Vturb costuma fornecer (ajustar com
+         o código real de vocês):
+
+         <script type="text/javascript"
+           src="https://scripts.converteai.net/SEU_CODIGO/players/SEU_PLAYER/player.js"
+           async></script>
+         <div id="vid_SEU_PLAYER" style="position:relative;width:100%;padding:56.34% 0 0;">
+           <img id="thumb_SEU_PLAYER"
+             src="https://images.converteai.net/SEU_CODIGO/players/SEU_PLAYER/thumbnail.jpg"
+             style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"
+             alt="thumbnail">
+         </div>
+       ========================================================== -->
+    <div id="vturb-vsl-embed">
+      Espaço reservado para a VSL (Vturb)<br>
+      Substitua este bloco pelo código de embed oficial.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Termos de Uso</a>
+    <span class="separador">|</span>
+    <a href="#">Política de Privacidade</a>
+  </div>
+  <div class="footer-copy">
+    Copyright &copy; 2025 | Dra. Amanda Almeida | <a href="mailto:dravaginismo@gmail.com">dravaginismo@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Mostra sempre a data atual no formato DD/MM/AAAA
+  (function(){
+    var hoje = new Date();
+    var dia = String(hoje.getDate()).padStart(2, '0');
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    var ano = hoje.getFullYear();
+    document.getElementById('data-hoje').textContent = dia + '/' + mes + '/' + ano;
+  })();
+</script>
+
+</body>
+</html>
