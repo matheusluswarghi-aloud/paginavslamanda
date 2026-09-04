@@ -161,5 +161,29 @@
   })();
 </script>
 
+<script>
+  // Evento PlayVSL: o primeiro clique na pagina e o que inicia a VSL de verdade
+  // (o player fica mudo ate a pessoa clicar). Serve para medir play rate real,
+  // cruzando PlayVSL com landing page views.
+  (function(){
+    var CHAVE = 'playvsl_enviado';
+    if (sessionStorage.getItem(CHAVE)) return;
+
+    function enviar(){
+      if (sessionStorage.getItem(CHAVE)) return;
+      // O fbq e injetado em runtime pela UTMify, nao esta no HTML. Se o clique
+      // vier antes do script carregar, deixa o listener vivo e tenta no proximo.
+      if (typeof window.fbq !== 'function') return;
+      window.fbq('trackCustom', 'PlayVSL');
+      sessionStorage.setItem(CHAVE, '1');
+      document.removeEventListener('click', enviar, true);
+      document.removeEventListener('touchend', enviar, true);
+    }
+
+    document.addEventListener('click', enviar, true);
+    document.addEventListener('touchend', enviar, true);
+  })();
+</script>
+
 </body>
 </html>
