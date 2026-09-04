@@ -174,7 +174,11 @@
       // O fbq e injetado em runtime pela UTMify, nao esta no HTML. Se o clique
       // vier antes do script carregar, deixa o listener vivo e tenta no proximo.
       if (typeof window.fbq !== 'function') return;
-      window.fbq('trackCustom', 'PlayVSL');
+      // Evento padrao em vez de trackCustom: o Meta suprime evento personalizado
+      // nao declarado na conta. FindLocation nao e usado neste funil, entao nao
+      // colide com PageView/ViewContent/AddToCart/InitiateCheckout/Purchase/
+      // Lead/CompleteRegistration. O content_name identifica o play.
+      window.fbq('track', 'FindLocation', { content_name: 'PlayVSL' });
       sessionStorage.setItem(CHAVE, '1');
       document.removeEventListener('click', enviar, true);
       document.removeEventListener('touchend', enviar, true);
